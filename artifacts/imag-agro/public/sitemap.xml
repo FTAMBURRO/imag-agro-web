@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>http://localhost:3000/</loc></url>
+  <url><loc>http://localhost:3000/soluciones</loc></url>
+  <url><loc>http://localhost:3000/soluciones/semillas</loc></url>
+  <url><loc>http://localhost:3000/soluciones/genetica-bovina</loc></url>
+  <url><loc>http://localhost:3000/soluciones/insumos</loc></url>
+  <url><loc>http://localhost:3000/soluciones/forrajes</loc></url>
+  <url><loc>http://localhost:3000/soluciones/materias-primas</loc></url>
+  <url><loc>http://localhost:3000/soluciones/hacienda</loc></url>
+  <url><loc>http://localhost:3000/soluciones/campos</loc></url>
+  <url><loc>http://localhost:3000/soluciones/granos-y-back-office</loc></url>
+  <url><loc>http://localhost:3000/informacion</loc></url>
+  <url><loc>http://localhost:3000/informacion/interpretar-el-mercado-ganadero</loc></url>
+  <url><loc>http://localhost:3000/informacion/preparar-hacienda-ante-lluvias</loc></url>
+  <url><loc>http://localhost:3000/informacion/elegir-un-hibrido</loc></url>
+  <url><loc>http://localhost:3000/informacion/planificacion-verdeos-invierno</loc></url>
+  <url><loc>http://localhost:3000/informacion/orden-documental-mercado-granos</loc></url>
+  <url><loc>http://localhost:3000/nosotros</loc></url>
+  <url><loc>http://localhost:3000/contacto</loc></url>
+</urlset>

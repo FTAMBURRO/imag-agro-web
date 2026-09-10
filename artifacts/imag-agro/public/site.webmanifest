@@ -1,0 +1,10 @@
+{
+  "name": "IMAG AGRO SAS",
+  "short_name": "IMAG AGRO",
+  "description": "Soluciones agropecuarias para decidir mejor.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f3efe4",
+  "theme_color": "#1e4333",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

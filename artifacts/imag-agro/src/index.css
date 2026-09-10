@@ -1,0 +1,146 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: 42 34% 95%;
+  --foreground: 156 32% 14%;
+  --border: 37 19% 79%;
+  --input: 37 19% 79%;
+  --ring: 43 68% 51%;
+  --card: 42 40% 97%;
+  --card-foreground: 156 32% 14%;
+  --card-border: 37 22% 82%;
+  --popover: 42 40% 97%;
+  --popover-foreground: 156 32% 14%;
+  --popover-border: 37 22% 82%;
+  --primary: 154 38% 19%;
+  --primary-foreground: 42 40% 97%;
+  --secondary: 39 27% 88%;
+  --secondary-foreground: 154 38% 19%;
+  --muted: 40 26% 90%;
+  --muted-foreground: 155 13% 39%;
+  --accent: 43 68% 51%;
+  --accent-foreground: 156 32% 14%;
+  --destructive: 3 52% 37%;
+  --destructive-foreground: 42 40% 97%;
+  --app-font-sans: 'Arial', 'Helvetica Neue', sans-serif;
+  --app-font-serif: 'Georgia', 'Times New Roman', serif;
+  --app-font-mono: 'Arial', 'Helvetica Neue', sans-serif;
+  --radius: 0.3rem;
+  --shadow-sm: 0 8px 24px rgba(29, 61, 47, .07);
+  --shadow-md: 0 16px 42px rgba(29, 61, 47, .12);
+  --shadow-lg: 0 22px 62px rgba(29, 61, 47, .16);
+  --sidebar: 154 38% 19%;
+  --sidebar-foreground: 42 40% 97%;
+  --sidebar-border: 154 25% 30%;
+  --sidebar-primary: 43 68% 51%;
+  --sidebar-primary-foreground: 156 32% 14%;
+  --sidebar-accent: 154 30% 26%;
+  --sidebar-accent-foreground: 42 40% 97%;
+  --sidebar-ring: 43 68% 51%;
+  --chart-1: 154 38% 19%;
+  --chart-2: 43 68% 51%;
+  --chart-3: 3 52% 37%;
+  --chart-4: 88 26% 52%;
+  --chart-5: 37 19% 79%;
+}
+
+.dark {
+  --background: 154 38% 11%;
+  --foreground: 42 40% 97%;
+  --border: 154 25% 30%;
+  --input: 154 25% 30%;
+  --ring: 43 68% 51%;
+  --card: 154 32% 15%;
+  --card-foreground: 42 40% 97%;
+  --card-border: 154 25% 30%;
+  --popover: 154 32% 15%;
+  --popover-foreground: 42 40% 97%;
+  --popover-border: 154 25% 30%;
+  --primary: 43 68% 51%;
+  --primary-foreground: 154 38% 11%;
+  --secondary: 154 30% 23%;
+  --secondary-foreground: 42 40% 97%;
+  --muted: 154 28% 20%;
+  --muted-foreground: 42 19% 75%;
+  --accent: 3 52% 50%;
+  --accent-foreground: 42 40% 97%;
+  --destructive: 3 52% 50%;
+  --destructive-foreground: 42 40% 97%;
+  --sidebar: 154 38% 8%;
+  --sidebar-foreground: 42 40% 97%;
+  --sidebar-border: 154 25% 30%;
+  --sidebar-primary: 43 68% 51%;
+  --sidebar-primary-foreground: 154 38% 11%;
+  --sidebar-accent: 154 30% 17%;
+  --sidebar-accent-foreground: 42 40% 97%;
+  --sidebar-ring: 43 68% 51%;
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body { @apply font-sans antialiased bg-background text-foreground; }
+  ::selection { background: hsl(var(--accent)); color: hsl(var(--foreground)); }
+  :focus-visible { outline: 2px solid hsl(var(--accent)); outline-offset: 4px; }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--app-font-serif); }
+  .eyebrow { font-size: .7rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+  .container-wide { width: min(100% - 2rem, 1180px); margin-inline: auto; }
+  .rule { border-top: 1px solid hsl(var(--border)); }
+  .text-balance { text-wrap: balance; }
+  .noise { position: relative; }
+  .noise::after { content: ''; position: fixed; inset: 0; pointer-events: none; opacity: .035; z-index: 40; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E"); mix-blend-mode: multiply; }
+}
+
+.site-link { position: relative; transition: color .25s ease; }
+.site-link::after { content: ''; position: absolute; height: 1px; left: 0; right: 100%; bottom: -.35rem; background: currentColor; transition: right .25s ease; }
+.site-link:hover::after, .site-link[aria-current="page"]::after { right: 0; }
+.reveal { animation: rise .7s both; }
+.reveal-delay-1 { animation-delay: .1s; }
+.reveal-delay-2 { animation-delay: .2s; }
+.reveal-delay-3 { animation-delay: .3s; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
+
+.field-art { position: relative; overflow: hidden; background: linear-gradient(158deg, #d9cda6 0 20%, #a58a51 20% 21%, #9b834c 21% 43%, #637b52 43% 44%, #536b48 44% 65%, #2f563f 65%); }
+.field-art::before, .field-art::after { content: ''; position: absolute; inset: -10%; transform: rotate(-9deg); background: repeating-linear-gradient(168deg, transparent 0 17px, rgba(245,235,196,.23) 18px 19px, transparent 20px 35px); }
+.field-art::after { transform: rotate(6deg) translateY(42px); opacity: .45; }
+.crop-lines { background-image: repeating-linear-gradient(174deg, transparent 0 18px, rgba(215,177,70,.22) 19px 20px); }
+.vertical-label { writing-mode: vertical-rl; transform: rotate(180deg); }

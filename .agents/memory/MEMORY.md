@@ -1,0 +1,1 @@
+- [Self-contained public site assets](self-contained-public-site.md) — keep the initial IMAG Agro experience local until official media and brand files are confirmed.
