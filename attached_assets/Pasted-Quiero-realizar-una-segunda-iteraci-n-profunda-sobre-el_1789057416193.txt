@@ -1,0 +1,693 @@
+Quiero realizar una segunda iteración profunda sobre el sitio existente de IMAG AGRO SAS.
+
+La primera versión ya funciona y la paleta de colores está aprobada. No quiero rehacer el proyecto desde cero, cambiar innecesariamente la arquitectura ni perder funcionalidades.
+
+El problema actual es visual y emocional:
+
+- La web se siente correcta, pero demasiado genérica.
+- Le falta vida.
+- Le falta presencia humana.
+- Le faltan fotografías reales del campo.
+- No utiliza correctamente el logo de IMAG.
+- No termina de transmitir la identidad, el conocimiento técnico y la cercanía de la marca.
+
+Tu tarea es transformar la versión actual en una web con identidad propia, capaz de sorprender al dueño de IMAG y, al mismo tiempo, ayudar de verdad al productor que la visita.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. ANTES DE MODIFICAR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Antes de editar código:
+
+1. Inspeccioná todas las páginas y componentes existentes.
+2. Identificá qué partes ya funcionan correctamente.
+3. Conservá:
+   - La arquitectura.
+   - Los textos útiles.
+   - Las rutas.
+   - La lógica.
+   - El buscador de soluciones.
+   - La integración con WhatsApp.
+   - La paleta actual.
+4. Detectá:
+   - Secciones demasiado vacías.
+   - Fondos genéricos.
+   - Imágenes inexistentes o poco relevantes.
+   - Cards que parecen de una plantilla.
+   - Lugares donde el logo debería tener más presencia.
+   - Elementos que no comunican campo, producción ni cercanía.
+5. Proponé un plan breve de mejora y después implementalo completamente.
+
+No te limites a describir cambios. Realizalos.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2. UTILIZAR EL LOGO REAL DE IMAG
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Usá el archivo adjunto:
+
+IMG_7964.jpeg
+
+Este es el logo real de IMAG y debe convertirse en el centro de la identidad visual.
+
+El logo contiene:
+
+- El nombre IMAG en arco.
+- Una gran letra “V”.
+- Un toro.
+- Espigas de cereal.
+- Verde institucional sobre un círculo blanco.
+
+No redibujar el logo.
+
+No crear una versión inventada.
+
+No reemplazarlo por un icono de hoja, tractor, vaca genérica o isotipo generado automáticamente.
+
+PROCESAMIENTO DEL ARCHIVO
+
+1. Guardar el archivo original dentro de:
+
+public/brand/imag-logo-original.jpeg
+
+2. Crear una versión optimizada para web.
+
+3. Recortar únicamente el área exterior oscura y conservar completo el círculo blanco.
+
+4. No cortar:
+   - La palabra IMAG.
+   - Los cuernos del toro.
+   - Las espigas.
+   - La parte inferior de la letra V.
+
+5. Mantener la proporción original.
+
+6. Utilizar `object-fit: contain`.
+
+7. Generar, cuando sea técnicamente posible:
+
+- public/brand/imag-logo.webp
+- public/brand/imag-logo-512.png
+- app/icon.png
+- app/apple-icon.png
+- app/opengraph-image.jpg
+
+8. Si no se puede eliminar correctamente el fondo exterior sin dañar el logo, conservar el círculo completo y aplicar un recorte circular mediante CSS.
+
+9. No aplicar filtros que cambien el verde del logo.
+
+10. No estirar ni deformar la imagen.
+
+APLICACIÓN DEL LOGO
+
+Integrar el logo en:
+
+- Header.
+- Hero.
+- Menú mobile.
+- Sección “Nosotros”.
+- CTA final.
+- Footer.
+- Favicon.
+- Imagen Open Graph.
+
+HEADER
+
+Usar el sello circular del logo en aproximadamente 44–52 px y acompañarlo con un lockup tipográfico:
+
+IMAG
+AGRO SAS
+
+No repetir la palabra IMAG de forma desordenada si ya es legible en el logo.
+
+HERO
+
+Mostrar el logo con más presencia dentro de un sello o medallón refinado, de aproximadamente 150–220 px en desktop.
+
+Debe sentirse como una marca con trayectoria y personalidad, no como una imagen pegada arriba de una plantilla.
+
+FOOTER
+
+Usar el logo en un tamaño mayor, acompañado de:
+
+“Soluciones que producen resultados.”
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+3. NO CAMBIAR LA PALETA APROBADA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+La paleta actual está aprobada.
+
+No reemplazarla.
+
+No introducir una nueva identidad cromática.
+
+Únicamente:
+
+- Mejorar contraste.
+- Ordenar jerarquías.
+- Incorporar tonos crema y blanco cálido donde ayuden a respirar.
+- Usar el verde institucional como color dominante.
+- Utilizar arena, tierra o dorado cosecha como acentos muy medidos.
+- Mantener consistencia entre páginas.
+
+El color debe acompañar a las fotografías, no competir con ellas.
+
+Evitar:
+
+- Verde neón.
+- Degradados tecnológicos.
+- Glassmorphism excesivo.
+- Fondos violetas o azules.
+- Demasiadas cards blancas flotantes.
+- Sombras genéricas.
+- Interfaces con apariencia de startup SaaS.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+4. DIRECCIÓN FOTOGRÁFICA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+La fotografía debe darle vida a la web.
+
+Quiero fotografías reales, documentales y auténticas. No usar ilustraciones 3D, renders ni imágenes que parezcan generadas por inteligencia artificial.
+
+PRIORIDAD DE FUENTES
+
+1. Fotografías reales proporcionadas por IMAG.
+2. Fotografías reales de sus lotes, recorridas, remates y actividades.
+3. Fotografías autorizadas provenientes de su comunicación institucional.
+4. Solamente si faltan recursos: fotografías temporales con licencia clara provenientes de Unsplash o Pexels.
+
+Si se utilizan fotografías temporales:
+
+- Descargarlas y guardarlas localmente.
+- No dejar hotlinks externos.
+- Guardarlas dentro de `public/images/demo`.
+- Crear `IMAGE_REPLACEMENT_GUIDE.md`.
+- Indicar qué fotografía real deberá reemplazar cada imagen.
+- Crear `ATTRIBUTION.md` si la licencia lo requiere.
+
+No descargar ni reutilizar imágenes de terceros sin verificar que se puedan utilizar.
+
+TIPO DE FOTOGRAFÍAS NECESARIAS
+
+Seleccionar entre 8 y 12 fotografías coherentes:
+
+1. Hero:
+   Productor o asesor recorriendo un lote de maíz o cereal, preferentemente durante la mañana o el atardecer.
+
+2. Semillas:
+   Primer plano de semillas, espigas o cultivo en desarrollo.
+
+3. Genética bovina:
+   Hacienda Angus o Hereford real, en pastura, manga o remate.
+
+4. Hacienda:
+   Movimiento de animales, corrales o una operación ganadera auténtica.
+
+5. Forrajes:
+   Rollos de alfalfa o fardos en campo.
+
+6. Insumos:
+   Aplicación o planificación productiva, evitando envases con marcas no autorizadas.
+
+7. Back office:
+   Persona trabajando con documentación, computadora, cartas de porte o información del mercado.
+
+8. Equipo:
+   Reunión, recorrida o conversación con productores.
+
+9. Experiencia de campo:
+   Técnico observando una planta, suelo, espiga o estado del lote.
+
+10. CTA final:
+    Paisaje productivo argentino amplio y emocional.
+
+DIRECCIÓN ESTÉTICA
+
+Las imágenes deben sentirse:
+
+- Argentinas.
+- Productivas.
+- Reales.
+- Cercanas.
+- Cálidas.
+- Técnicas.
+- Humanas.
+- Naturales.
+
+Buscar:
+
+- Luz de amanecer o atardecer.
+- Texturas reales.
+- Tierra, cultivos y animales.
+- Personas trabajando.
+- Manos observando semillas o plantas.
+- Miradas espontáneas.
+- Planos amplios combinados con detalles.
+- Colores ligeramente desaturados.
+- Tratamiento editorial uniforme.
+
+Evitar:
+
+- Graneros rojos estadounidenses.
+- Sombreros cowboy.
+- Tractores enormes como único protagonista.
+- Fotos de bancos de imágenes demasiado posadas.
+- Personas mirando a cámara con sonrisa corporativa.
+- Campos artificialmente perfectos.
+- Animales deformes.
+- Manos generadas por IA.
+- Paisajes que no parezcan del agro argentino.
+- Imágenes oscuras donde no se entienda la actividad.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+5. NUEVA EXPERIENCIA DEL HERO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+El hero debe convertirse en el momento más fuerte de la web.
+
+No usar solamente un fondo verde plano o una ilustración abstracta.
+
+Crear una composición editorial con:
+
+- Fotografía real de campo a pantalla completa.
+- Degradado verde oscuro lateral para asegurar legibilidad.
+- Logo real de IMAG.
+- Titular grande.
+- Subtítulo.
+- Dos CTAs.
+- Un pequeño sello o indicador de marca.
+- Una franja de servicios o capacidades.
+
+Contenido:
+
+Eyebrow:
+
+“IMAG AGRO SAS · Soluciones integrales para el agro”
+
+H1:
+
+“Cada decisión del campo, mejor acompañada.”
+
+Texto:
+
+“Combinamos conocimiento técnico, gestión y cercanía para ayudarte a elegir, planificar y producir con mayor claridad.”
+
+Firma visual:
+
+“Soluciones que producen resultados.”
+
+CTA principal:
+
+“Hablemos por WhatsApp”
+
+CTA secundario:
+
+“Conocé nuestras soluciones”
+
+Agregar una pequeña línea editorial:
+
+“Producción · Genética · Comercialización · Gestión”
+
+La fotografía debe ocupar entre el 50% y el 65% del impacto visual.
+
+El hero tiene que sentirse vivo antes de comenzar cualquier animación.
+
+ANIMACIÓN
+
+Agregar solamente:
+
+- Entrada escalonada del logo y los textos.
+- Zoom muy lento y casi imperceptible de la fotografía.
+- Aparición suave de la franja de capacidades.
+- Transición refinada del header al hacer scroll.
+
+No usar carrusel automático.
+
+No usar video pesado.
+
+No ocultar información importante detrás de efectos.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+6. LENGUAJE VISUAL PROPIO DE IMAG
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Construir un sistema gráfico inspirado en el logo.
+
+Elementos permitidos:
+
+- Círculos y arcos inspirados en el sello.
+- Líneas finas que recuerden surcos de cultivo.
+- Espigas simplificadas como textura secundaria.
+- Composiciones verticales inspiradas en la letra V.
+- Marcos editoriales.
+- Sellos circulares.
+- Etiquetas técnicas.
+- Números de sección grandes.
+- Fotografías superpuestas con bordes finos.
+- Pequeños detalles en dorado cosecha.
+
+No copiar ni redibujar el toro del logo fuera del archivo original.
+
+No llenar todas las secciones con el logo.
+
+Crear reconocimiento mediante repetición sutil:
+
+- Arcos.
+- Surcos.
+- Círculos.
+- Verde profundo.
+- Tipografía editorial.
+- Fotografía de campo.
+- Frases breves y directas.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+7. DARLE VIDA A LAS SECCIONES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SOLUCIONES
+
+Las tarjetas actuales no deben parecer ocho cajas iguales.
+
+Transformarlas en una grilla editorial:
+
+- Algunas cards grandes con fotografía.
+- Algunas cards compactas con iconografía.
+- Jerarquías distintas.
+- Buen equilibrio visual.
+- Hover que revele el CTA.
+- Categoría visible.
+- Imagen relacionada con el servicio.
+
+Cada servicio debe poder reconocerse antes de leer todo el texto.
+
+GENÉTICA BOVINA
+
+Usar una fotografía protagonista de hacienda real.
+
+Mostrar visualmente:
+
+- Adaptación.
+- Selección.
+- Rendimiento.
+- Objetivo productivo.
+
+No usar siluetas genéricas si existe fotografía.
+
+SEMILLAS
+
+Usar una combinación de:
+
+- Lote.
+- Espiga.
+- Mano observando el cultivo.
+- Textura de semilla.
+
+Evitar la típica foto genérica de una hoja sostenida sobre fondo blanco.
+
+FORRAJES
+
+Mostrar rollos o fardos en un campo real.
+
+HACIENDA
+
+Usar corrales, pasturas o remates.
+
+BACK OFFICE DE GRANOS
+
+No resolverlo con una imagen bancaria genérica.
+
+Mostrar:
+
+- Documentación.
+- Datos.
+- Mercado.
+- Orden operativo.
+- Trabajo real de escritorio vinculado con el agro.
+
+CÓMO TRABAJAMOS
+
+Agregar fotografías pequeñas o una imagen longitudinal que acompañe las tres etapas:
+
+1. Escuchamos.
+2. Evaluamos.
+3. Acompañamos.
+
+EXPERIENCIA EN CAMPO
+
+Convertir esta sección en una verdadera revista visual:
+
+- Fotografías grandes.
+- Fecha y categoría.
+- Títulos fuertes.
+- Composiciones asimétricas.
+- Textos breves.
+- Mucho espacio.
+- Enlaces claros.
+
+El visitante debe sentir que IMAG efectivamente está en el campo.
+
+NOSOTROS
+
+Esta sección necesita humanidad.
+
+Usar una fotografía del equipo o de una recorrida.
+
+Si todavía no hay una fotografía propia, utilizar una temporal claramente documentada para reemplazo.
+
+No crear perfiles ficticios.
+
+No inventar integrantes.
+
+CTA FINAL
+
+Usar una fotografía emocional de campo en formato full-width con overlay verde.
+
+Incluir el logo real como sello.
+
+Texto:
+
+“Contanos qué necesitás. Lo vemos juntos.”
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+8. MEJORAR LA PERCEPCIÓN DE MARCA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+La marca debe sentirse:
+
+- Profesional sin ser distante.
+- Técnica sin ser complicada.
+- Tradicional sin verse antigua.
+- Moderna sin parecer tecnológica.
+- Comercial sin ser agresiva.
+- Rural sin caer en clichés.
+
+Agregar pequeños mensajes de identidad en lugares estratégicos:
+
+“Cada campo tiene una realidad distinta.”
+
+“Primero entendemos. Después recomendamos.”
+
+“Más que productos, soluciones para producir.”
+
+“Cerca del productor, desde la consulta hasta el resultado.”
+
+“Lo vemos juntos.”
+
+No usar todas estas frases juntas. Distribuirlas con criterio.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+9. UTILIDAD PARA EL USUARIO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+La mejora visual no puede perjudicar la experiencia.
+
+Mantener o mejorar:
+
+- Navegación clara.
+- Lectura rápida de servicios.
+- Buscador de soluciones.
+- CTAs contextuales.
+- WhatsApp visible.
+- Páginas individuales.
+- Accesibilidad.
+- Velocidad.
+- Mobile.
+
+Cada fotografía debe cumplir una función:
+
+- Explicar.
+- Contextualizar.
+- Generar confianza.
+- Diferenciar un servicio.
+- Mostrar experiencia.
+- Humanizar la empresa.
+
+No agregar fotos solamente para llenar espacio.
+
+Mantener un botón flotante de WhatsApp sobrio.
+
+En cada servicio, usar un CTA específico:
+
+- “Consultar por semillas”.
+- “Hablar sobre genética”.
+- “Consultar por hacienda”.
+- “Necesito ordenar una operación”.
+- “Consultar disponibilidad”.
+- “Buscar una solución para mi campo”.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+10. MOBILE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Rediseñar cuidadosamente la experiencia mobile.
+
+El logo debe verse nítido y no ocupar demasiado espacio.
+
+El hero debe:
+
+- Mantener una fotografía reconocible.
+- Evitar que el texto tape el sujeto principal.
+- Tener un H1 legible.
+- Mostrar el CTA principal sin hacer scroll excesivo.
+- Conservar el carácter editorial.
+
+Las grillas fotográficas deben convertirse en composiciones verticales cuidadas, no en una lista interminable de cards idénticas.
+
+Evitar:
+
+- Recortes de cabezas o animales.
+- Texto sobre zonas demasiado claras.
+- Botones pequeños.
+- Logo pixelado.
+- Scroll horizontal.
+- Animaciones pesadas.
+
+Revisar como mínimo:
+
+- 320 px.
+- 375 px.
+- 430 px.
+- 768 px.
+- 1024 px.
+- 1440 px.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+11. OPTIMIZACIÓN TÉCNICA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Usar `next/image` para todas las fotografías.
+
+Definir correctamente:
+
+- width.
+- height.
+- sizes.
+- priority solamente para la imagen principal.
+- quality razonable.
+- lazy loading debajo del hero.
+- alt text útil.
+
+Comprimir y convertir imágenes grandes a WebP o AVIF cuando corresponda.
+
+Evitar layout shifts.
+
+No incorporar librerías pesadas solamente para mostrar galerías.
+
+No cambiar la arquitectura portable existente.
+
+El sitio debe seguir funcionando tanto en Replit como en Vercel.
+
+No agregar dependencias propietarias de Replit.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+12. ARCHIVOS DE DOCUMENTACIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Crear:
+
+1. `BRAND_GUIDE.md`
+
+Debe documentar:
+
+- Uso del logo.
+- Tamaños mínimos.
+- Colores.
+- Tipografías.
+- Estilo fotográfico.
+- Elementos gráficos.
+- Usos incorrectos.
+
+2. `IMAGE_REPLACEMENT_GUIDE.md`
+
+Debe listar:
+
+- Ruta del archivo.
+- Sección donde aparece.
+- Qué debe mostrar la fotografía final.
+- Orientación.
+- Dimensiones recomendadas.
+- Texto alternativo.
+- Si actualmente es una imagen temporal.
+
+3. `ASSETS_NEEDED.md`
+
+Debe solicitar al cliente:
+
+- Logo vectorial o PNG transparente.
+- Fotografías del equipo.
+- Recorridas de lotes.
+- Hacienda.
+- Remates.
+- Semillas.
+- Rollos y forrajes.
+- Oficinas y documentación.
+- Logos oficiales de marcas aliadas.
+- Datos de contacto definitivos.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+13. CRITERIOS DE ACEPTACIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+No dar la tarea por terminada hasta comprobar que:
+
+- El logo real aparece correctamente.
+- El logo no está deformado.
+- El hero utiliza fotografía real.
+- Las principales áreas de servicio tienen imágenes relevantes.
+- La web ya no parece una plantilla genérica.
+- La paleta aprobada se conserva.
+- Existe una identidad visual consistente.
+- La versión mobile mantiene el impacto.
+- WhatsApp sigue funcionando.
+- El buscador de soluciones sigue funcionando.
+- No se rompieron rutas.
+- No existen imágenes rotas.
+- No hay texto ilegible sobre fotografías.
+- No hay errores en consola.
+- No hay overflow horizontal.
+- Las imágenes están optimizadas.
+- Se respeta `prefers-reduced-motion`.
+- El proyecto sigue siendo portable a Vercel.
+- `npm run lint` funciona.
+- `npm run typecheck` funciona.
+- `npm run build` finaliza correctamente.
+
+Al terminar, mostrar:
+
+1. Qué secciones fueron transformadas.
+2. Cómo se integró el logo.
+3. Qué fotografías son definitivas.
+4. Qué fotografías son temporales.
+5. Qué archivos debería entregar IMAG.
+6. Resultado de lint, typecheck y build.
+7. Capturas de la home en desktop y mobile.
+
+El resultado final debe hacer que el dueño de IMAG piense:
+
+“Ahora sí, esta web tiene nuestra identidad.”
+
+Y que el productor piense:
+
+“Entiendo qué hacen, veo que conocen el campo y sé exactamente cómo consultar.”
