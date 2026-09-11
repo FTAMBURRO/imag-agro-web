@@ -3,14 +3,13 @@ import { Link, useLocation } from 'wouter';
 import { ArrowUpRight, ChevronDown, Menu, X } from 'lucide-react';
 import { brands, footerGroups, navItems, siteConfig } from '@/content/site';
 
+const assetBase = import.meta.env.BASE_URL;
+
 function Mark() {
   return (
-    <span className="flex items-center gap-3" aria-label="IMAG AGRO SAS">
-      <span className="relative flex h-9 w-9 items-center justify-center border border-[hsl(var(--accent))] text-[hsl(var(--accent))]">
-        <svg aria-hidden="true" viewBox="0 0 34 34" className="h-7 w-7">
-          <path d="M6 26V8m0 9c5-8 10-8 15 0 2 3 4 3 7-1" fill="none" stroke="currentColor" strokeWidth="1.6" />
-          <path d="M6 26c7-4 14-4 22 0" fill="none" stroke="currentColor" strokeWidth="1.1" />
-        </svg>
+    <span className="brand-lockup flex items-center gap-3" aria-label="IMAG AGRO SAS">
+      <span className="brand-lockup__seal">
+        <img src={`${assetBase}brand/imag-logo.webp`} alt="" aria-hidden="true" />
       </span>
       <span className="leading-none">
         <strong className="block text-[.9rem] tracking-[.18em]">IMAG</strong>
@@ -37,24 +36,24 @@ export function SiteHeader() {
         <Link href="/" onClick={closeMenu} className="shrink-0" data-testid="link-home">
           <Mark />
         </Link>
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Navegación principal">
+        <nav className="hidden items-center gap-8 xl:flex" aria-label="Navegación principal">
           {navItems.map((item) => (
             <Link key={item.href} href={item.href} aria-current={location.startsWith(item.href) ? 'page' : undefined} className="site-link text-[.76rem] font-semibold tracking-[.11em] text-[hsl(var(--primary-foreground))]/85 hover:text-[hsl(var(--accent))]" data-testid={`link-nav-${item.label.toLowerCase()}`}>
               {item.label}
             </Link>
           ))}
         </nav>
-        <div className="hidden items-center gap-6 md:flex">
+        <div className="hidden items-center gap-6 xl:flex">
           <Link href="/contacto" className="group flex items-center gap-2 border border-[hsl(var(--accent))] px-4 py-2.5 text-[.72rem] font-bold tracking-[.1em] text-[hsl(var(--accent))] transition-colors hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--foreground))]" data-testid="link-header-contacto">
             Hablemos <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
-        <button type="button" onClick={() => setMenuOpen((open) => !open)} aria-expanded={menuOpen} aria-controls="mobile-navigation" className="p-2 md:hidden" data-testid="button-mobile-menu">
+        <button type="button" onClick={() => setMenuOpen((open) => !open)} aria-expanded={menuOpen} aria-controls="mobile-navigation" className="p-2 xl:hidden" data-testid="button-mobile-menu">
           {menuOpen ? <X aria-label="Cerrar menú" /> : <Menu aria-label="Abrir menú" />}
         </button>
       </div>
       {menuOpen && (
-        <div id="mobile-navigation" className="absolute inset-x-0 top-[76px] min-h-[calc(100dvh-76px)] border-t border-[hsl(var(--sidebar-border))] bg-[hsl(var(--primary))] px-6 py-10 md:hidden">
+        <div id="mobile-navigation" className="absolute inset-x-0 top-[76px] min-h-[calc(100dvh-76px)] border-t border-[hsl(var(--sidebar-border))] bg-[hsl(var(--primary))] px-6 py-10 xl:hidden">
           <nav className="flex flex-col gap-7" aria-label="Navegación móvil">
             {navItems.map((item) => (
               <Link key={item.href} href={item.href} onClick={closeMenu} className="text-3xl font-display text-[hsl(var(--primary-foreground))]" data-testid={`link-mobile-${item.label.toLowerCase()}`}>{item.label}</Link>
@@ -74,8 +73,13 @@ export function SiteFooter() {
       <div className="container-wide py-16 md:py-20">
         <div className="grid gap-12 md:grid-cols-[1.2fr_1fr_1fr]">
           <div>
-            <Mark />
-            <p className="mt-8 max-w-xs font-display text-2xl leading-tight text-[hsl(var(--primary-foreground))]/90">Cada decisión del campo, mejor acompañada.</p>
+            <div className="footer-brand">
+              <span className="footer-brand__seal"><img src={`${assetBase}brand/imag-logo.webp`} alt="Logo de IMAG AGRO" /></span>
+              <div>
+                <p className="eyebrow text-[hsl(var(--accent))]">IMAG AGRO SAS</p>
+                <p className="mt-3 max-w-xs font-display text-2xl leading-tight text-[hsl(var(--primary-foreground))]/90">Soluciones que producen resultados.</p>
+              </div>
+            </div>
             <Link href="/contacto" className="mt-8 inline-flex items-center gap-2 border-b border-[hsl(var(--accent))] pb-2 text-sm font-bold text-[hsl(var(--accent))]" data-testid="link-footer-hablemos">Abrir una conversación <ArrowUpRight className="h-4 w-4" /></Link>
           </div>
           {footerGroups.map((group) => (

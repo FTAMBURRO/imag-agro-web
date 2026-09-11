@@ -10,8 +10,9 @@ Sitio público de IMAG AGRO SAS, construido para presentar soluciones agropecuar
 - Wouter para routing client-side
 - Lucide React para iconos
 - CSS/SVG local para la dirección visual de campo
+- Fotografías locales temporales optimizadas para la segunda iteración
 
-No usa base de datos, autenticación, servicios propietarios de Replit ni imágenes externas en runtime.
+No usa base de datos, autenticación, servicios propietarios de Replit ni URLs de imágenes externas en runtime.
 
 ## Instalación y desarrollo
 
@@ -51,9 +52,14 @@ No subas secretos reales al repositorio.
 - `src/content/site.ts`: identidad, navegación, WhatsApp, footer y alianzas.
 - `src/content/services.ts`: las ocho soluciones y sus textos.
 - `src/content/articles.ts`: las cinco piezas editoriales.
+- `src/content/media.ts`: mapa centralizado de fotografías, textos alternativos y usos temporales.
 - `src/components/site-shell.tsx`: header, menú móvil, footer y breadcrumb.
 - `src/pages/public-pages.tsx`: páginas públicas y estado client-only.
-- `public/favicon.svg`, `public/site.webmanifest`, `public/robots.txt`: SEO y recursos de instalación.
+- `public/brand/`: logo original adjunto y derivados WebP/PNG.
+- `public/images/demo/`: fotografías temporales descargadas y optimizadas localmente.
+- `public/app/`: iconos y Open Graph derivados del logo y la fotografía del hero.
+- `public/site.webmanifest`, `public/robots.txt`: SEO y recursos de instalación.
+- `IMAGE_REPLACEMENT_GUIDE.md`: reemplazos recomendados por material propio de IMAG.
 - `scripts/generate-sitemap.mjs`: genera `public/sitemap.xml` en cada build.
 - `scripts/lint.mjs`: control liviano de placeholders, TODOs y URLs externas accidentales.
 
@@ -61,7 +67,7 @@ No subas secretos reales al repositorio.
 
 El contenido editable está centralizado en `src/content`. Natal Seeds, Produsem y Cabaña Las Lilas se presentan como marcas y alianzas de portfolio, no como representaciones exclusivas.
 
-La versión inicial usa tratamientos de campo con CSS/SVG para no depender de stock externo. Revisá `ASSETS_NEEDED.md` antes de reemplazarlos por fotografías propias. Registrá derechos y licencias en `ATTRIBUTION.md`.
+La segunda iteración usa fotografías reales temporales, descargadas localmente y con atribución documentada. Revisá `IMAGE_REPLACEMENT_GUIDE.md` y `ASSETS_NEEDED.md` antes de publicar. Registrá derechos y licencias en `ATTRIBUTION.md`.
 
 No inventar antes de publicar: teléfono, email, domicilio, integrantes del equipo, certificaciones, precios, stock, financiación vigente, resultados productivos, cobertura general o cotizaciones en vivo.
 
@@ -91,8 +97,9 @@ Cuando haya un número real:
 
 ## Checklist previo a producción
 
-- [ ] Reemplazar tratamientos CSS por fotografías oficiales si están disponibles.
-- [ ] Confirmar logo, favicon y datos de marca.
+- [ ] Reemplazar las fotografías temporales por material oficial de IMAG si está disponible.
+- [ ] Confirmar licencia de cualquier foto temporal que permanezca.
+- [ ] Confirmar logo vectorial, favicon y datos de marca.
 - [ ] Confirmar WhatsApp, email y zona de atención.
 - [ ] Revisar textos marcados como `Revisión técnica pendiente`.
 - [ ] Probar las ocho rutas de soluciones.
