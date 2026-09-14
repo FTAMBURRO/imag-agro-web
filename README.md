@@ -1,105 +1,56 @@
 # IMAG AGRO Web
 
-Sitio web comercial y editorial para IMAG AGRO SAS, una empresa argentina de soluciones agropecuarias.
+Web comercial y editorial desarrollada para IMAG AGRO SAS, una empresa argentina vinculada a la producción agropecuaria.
 
-Este proyecto fue construido para transformar una presencia digital principalmente visual en una experiencia más clara, auténtica y útil para productores: entender qué hace la empresa, encontrar una solución concreta y abrir una conversación directa por WhatsApp.
+## El proyecto
 
-## Qué construí
+La web está pensada para un visitante que necesita entender rápidamente qué puede consultar y cómo iniciar una conversación. En lugar de presentar una marca de forma abstracta, organiza la propuesta alrededor de situaciones concretas del campo: semillas, genética bovina, insumos, forrajes, materias primas, hacienda, campos y gestión documental de granos.
 
-- Home editorial con hero, propuesta de valor y llamados a la acción visibles en desktop.
-- Catálogo de ocho soluciones: semillas, genética bovina, insumos, forrajes, materias primas, hacienda, campos y granos/back office.
-- Páginas de servicio con información concreta, preguntas iniciales y CTAs de WhatsApp contextuales.
-- Navegación responsive con menú mobile, breadcrumbs y estados de foco accesibles.
-- Sección Nosotros con espacio preparado para sumar la presentación real del dueño o equipo.
-- Sección Información con estados editoriales (`draft`, `review`, `published`). Solo el contenido aprobado se publica.
-- Sitemap generado automáticamente a partir de los artículos publicados.
-- Inventario de fotografías y datos pendientes para evitar imágenes o afirmaciones no verificadas.
-- Configuración preparada para desplegar como SPA en Vercel.
+El desafío fue conservar una identidad visual editorial, con verde profundo, crema, dorado moderado y fotografía de campo, pero convertirla en una experiencia más clara y accionable para productores.
 
-## Decisiones técnicas destacadas
+## Qué resuelve
 
-- React y TypeScript para una interfaz tipada y mantenible.
-- Vite para desarrollo y build de producción.
-- Wouter para routing client-side liviano.
-- Tailwind CSS y CSS propio para conservar una identidad editorial, no una interfaz genérica de dashboard.
-- Lucide React para iconografía.
-- Contenido centralizado en archivos TypeScript, sin base de datos ni backend necesario para el sitio público.
-- Assets locales para evitar dependencias de imágenes externas en runtime.
-- `vercel.json` con rewrite SPA para que las rutas internas funcionen al recargar o ingresar directamente.
+- Presenta las áreas de trabajo de IMAG AGRO en una navegación simple.
+- Lleva cada servicio a una página propia con información específica y preguntas para iniciar la consulta.
+- Genera mensajes de WhatsApp relacionados con el servicio elegido.
+- Permite recorrer la web cómodamente en desktop y mobile.
+- Separa el contenido editorial aprobado del material que todavía está en revisión.
+- Evita publicar fotografías, testimonios, resultados o datos comerciales que no hayan sido confirmados.
 
-## Arquitectura principal
+## Decisiones de producto
+
+La interfaz prioriza lectura, contexto y confianza por sobre la cantidad de elementos visuales. El hero explica la propuesta y muestra sus dos acciones principales sin scroll en un viewport desktop común. La sección “¿Qué necesitás resolver?” funciona como un punto de entrada orientado a la necesidad del visitante.
+
+El contenido está separado de los componentes de presentación. Los servicios, artículos, navegación, marcas y fotografías se administran desde fuentes de contenido centralizadas. Esto permite actualizar la información sin mezclarla con la estructura visual.
+
+También incorporé un estado editorial (`draft`, `review`, `published`). Los artículos no aprobados no aparecen en los listados públicos, no tienen enlaces públicos y no se agregan al sitemap.
+
+## Stack y arquitectura
+
+- React + TypeScript.
+- Vite para desarrollo y producción.
+- Wouter para routing del lado del cliente.
+- Tailwind CSS y CSS propio para la identidad visual.
+- Lucide React para iconos.
+- Assets locales y metadata preparada para SEO.
+- Sitemap generado según el contenido publicado.
+- SPA preparada para despliegue en Vercel.
+
+La aplicación pública vive en `artifacts/imag-agro/` y no necesita base de datos ni backend para funcionar.
 
 ```text
 artifacts/imag-agro/
-├── public/                  # Logo, fotografías, manifest, robots y sitemap
-├── scripts/
-│   ├── generate-sitemap.mjs # Sitemap según artículos publicados
-│   └── lint.mjs             # Validaciones livianas del contenido
+├── public/       # Logo, fotografías y recursos públicos
+├── scripts/      # Sitemap y validaciones
 └── src/
-    ├── components/          # Shell del sitio y componentes UI
-    ├── content/             # Servicios, artículos, navegación y media
-    ├── pages/               # Home y páginas públicas
-    ├── App.tsx              # Router principal
-    └── index.css            # Tokens visuales y estilos editoriales
+    ├── content/  # Servicios, artículos, navegación y media
+    ├── pages/    # Home y páginas públicas
+    ├── components/
+    └── App.tsx   # Router principal
 ```
 
-## Ejecutar localmente
+## Calidad y estado
 
-Requiere Node.js y pnpm.
+El proyecto fue validado en desktop y mobile, incluyendo navegación, rutas internas, foco de teclado, overflow horizontal, enlaces de WhatsApp e imágenes.
 
-Desde la raíz del repositorio:
-
-```bash
-pnpm install
-pnpm --filter @workspace/imag-agro run dev
-```
-
-El sitio queda disponible en `http://localhost:5000` o en el puerto configurado por `PORT`.
-
-## Validaciones
-
-```bash
-pnpm --filter @workspace/imag-agro run lint
-pnpm --filter @workspace/imag-agro run typecheck
-pnpm --filter @workspace/imag-agro run build
-```
-
-También se puede validar todo el workspace:
-
-```bash
-pnpm run typecheck
-PORT=5000 BASE_PATH=/ pnpm run build
-```
-
-## Deploy en Vercel
-
-La aplicación pública está dentro de `artifacts/imag-agro`.
-
-Configuración recomendada:
-
-- **Root Directory:** `artifacts/imag-agro`
-- **Framework Preset:** `Vite`
-- **Build Command:** `pnpm run build`
-- **Output Directory:** `dist/public`
-- **Install Command:** `pnpm install --frozen-lockfile`
-
-Variables de entorno:
-
-```env
-VITE_SITE_URL=https://tu-dominio.vercel.app
-VITE_WHATSAPP_URL=https://wa.me/message/UE6HDSE35A5GI1
-VITE_WHATSAPP_NUMBER=
-VITE_CONTACT_EMAIL=
-```
-
-`VITE_SITE_URL` se utiliza para generar el sitemap con el dominio definitivo.
-
-## Contenido y autenticidad
-
-Las imágenes demo están centralizadas en `artifacts/imag-agro/src/content/media.ts` y documentadas como temporales. El archivo `artifacts/imag-agro/CONTENT_ASSETS_PENDING.md` especifica las fotografías y datos que IMAG AGRO debe entregar o aprobar antes de reemplazarlas.
-
-No se inventan integrantes, clientes, testimonios, resultados, precios, stock, cobertura ni exclusividades comerciales. Los artículos no aprobados permanecen fuera del sitio público y del sitemap.
-
-## Estado del proyecto
-
-El sitio está preparado para una primera publicación en Vercel. Queda pendiente incorporar los assets propios y la información comercial que IMAG AGRO apruebe para producción.
+Los scripts de typecheck, lint y build pasan correctamente. La web está preparada para publicarse, aunque quedan pendientes fotografías propias y datos comerciales que IMAG AGRO debe entregar o aprobar. El detalle está documentado en [CONTENT_ASSETS_PENDING.md](artifacts/imag-agro/CONTENT_ASSETS_PENDING.md).
