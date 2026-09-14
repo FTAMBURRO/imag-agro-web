@@ -11,11 +11,6 @@
   <url><loc>http://localhost:3000/soluciones/campos</loc></url>
   <url><loc>http://localhost:3000/soluciones/granos-y-back-office</loc></url>
   <url><loc>http://localhost:3000/informacion</loc></url>
-  <url><loc>http://localhost:3000/informacion/interpretar-el-mercado-ganadero</loc></url>
-  <url><loc>http://localhost:3000/informacion/preparar-hacienda-ante-lluvias</loc></url>
-  <url><loc>http://localhost:3000/informacion/elegir-un-hibrido</loc></url>
-  <url><loc>http://localhost:3000/informacion/planificacion-verdeos-invierno</loc></url>
-  <url><loc>http://localhost:3000/informacion/orden-documental-mercado-granos</loc></url>
   <url><loc>http://localhost:3000/nosotros</loc></url>
   <url><loc>http://localhost:3000/contacto</loc></url>
 </urlset>

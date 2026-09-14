@@ -9,9 +9,6 @@ catalogs:
     '@replit/vite-plugin-cartographer':
       specifier: ^0.5.21
       version: 0.5.21
-    '@replit/vite-plugin-dev-banner':
-      specifier: ^0.1.1
-      version: 0.1.2
     '@replit/vite-plugin-runtime-error-modal':
       specifier: ^0.0.6
       version: 0.0.6
@@ -306,15 +303,12 @@ importers:
       '@radix-ui/react-tooltip':
         specifier: ^1.2.0
         version: 1.2.16(@types/react-dom@19.2.4(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@replit/vite-plugin-cartographer':
-        specifier: 'catalog:'
-        version: 0.5.21
-      '@replit/vite-plugin-dev-banner':
-        specifier: 'catalog:'
-        version: 0.1.2
-      '@replit/vite-plugin-runtime-error-modal':
-        specifier: 'catalog:'
-        version: 0.0.6
+      '@rollup/rollup-win32-x64-msvc':
+        specifier: 4.62.4
+        version: 4.62.4
+      '@tailwindcss/oxide-win32-x64-msvc':
+        specifier: 4.3.3
+        version: 4.3.3
       '@tailwindcss/typography':
         specifier: ^0.5.15
         version: 0.5.20(tailwindcss@4.3.3)
@@ -360,6 +354,9 @@ importers:
       input-otp:
         specifier: ^1.4.2
         version: 1.4.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      lightningcss-win32-x64-msvc:
+        specifier: 1.32.0
+        version: 1.32.0
       lucide-react:
         specifier: 'catalog:'
         version: 0.545.0(react@19.1.0)
@@ -1482,9 +1479,6 @@ packages:
   '@replit/vite-plugin-cartographer@0.5.21':
     resolution: {integrity: sha512-E5rco8Mov05QDfUOjoim3MVJdDX0/pBYql5Jay3w9cqmU/QOL6cEOUAjsBZPB/V8FEChsk++sZUrcWt1bHaAoQ==}
 
-  '@replit/vite-plugin-dev-banner@0.1.2':
-    resolution: {integrity: sha512-YfW3U1xKnLrqvSiTzXeEX8AG+Vpz7XwBsJHNvGbp841AE1mLvishMQi2Zw7ApyHp+9EMGthXuCjP+mLbl3IuGA==}
-
   '@replit/vite-plugin-runtime-error-modal@0.0.6':
     resolution: {integrity: sha512-53iuzLsrvcUnWxAo0fvNrUhOf7LYJ+3at61dZeTIrkaZD4vGNjTbvE0j50TFcjjTC9UM74uprlnQ4+L2A//Cjg==}
 
@@ -1496,6 +1490,11 @@ packages:
     cpu: [x64]
     os: [linux]
     libc: [glibc]
+
+  '@rollup/rollup-win32-x64-msvc@4.62.4':
+    resolution: {integrity: sha512-zD6NdeWEByGE9QF9vCrlJ5YQB4oq9q91kPZS37Jwj5hOkvR1lTBSpsKhKDw4IJtbQ35LsTS1HD9DZYGKIshU1Q==}
+    cpu: [x64]
+    os: [win32]
 
   '@scalar/helpers@0.9.2':
     resolution: {integrity: sha512-hjyMpMZjTBZQhyByZmz5oUgRKUQJO5V5AOiJxsVEGbUmgA7sJRQeTrXLB+BEwzaKS5nm2opJeNyMBYLFNK4hiQ==}
@@ -1568,6 +1567,12 @@ packages:
       - '@tybys/wasm-util'
       - '@emnapi/wasi-threads'
       - tslib
+
+  '@tailwindcss/oxide-win32-x64-msvc@4.3.3':
+    resolution: {integrity: sha512-yJ0pwIVc/nYeGoV02WtsN8KYyLQv7kyI2wDnkezyJlGGjkd4QLwDGAwl47YpPJeuI0M0ObaXGSPjvWDPeTPggw==}
+    engines: {node: '>= 20'}
+    cpu: [x64]
+    os: [win32]
 
   '@tailwindcss/oxide@4.3.3':
     resolution: {integrity: sha512-krXjAikiaFSPaK/FkAQT5UTx3VormQaiZ5hBFlJZ9UFQGB/rwg1MZIhHAG9smMQRTdyJxP6Qt5MwMtdyU5FWrA==}
@@ -2359,6 +2364,12 @@ packages:
     cpu: [x64]
     os: [linux]
     libc: [glibc]
+
+  lightningcss-win32-x64-msvc@1.32.0:
+    resolution: {integrity: sha512-Amq9B/SoZYdDi1kFrojnoqPLxYhQ4Wo5XiL8EVJrVsB8ARoC1PWW6VGtT0WKCemjy8aC+louJnjS7U18x3b06Q==}
+    engines: {node: '>= 12.0.0'}
+    cpu: [x64]
+    os: [win32]
 
   lightningcss@1.32.0:
     resolution: {integrity: sha512-NXYBzinNrblfraPGyrbPoD19C1h9lfI/1mzgWYvXUTe414Gz/X1FD2XBZSZM7rRTrMA8JL3OtAaGifrIKhQ5yQ==}
@@ -4089,8 +4100,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@replit/vite-plugin-dev-banner@0.1.2': {}
-
   '@replit/vite-plugin-runtime-error-modal@0.0.6':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
@@ -4099,6 +4108,8 @@ snapshots:
 
   '@rollup/rollup-linux-x64-gnu@4.62.4':
     optional: true
+
+  '@rollup/rollup-win32-x64-msvc@4.62.4': {}
 
   '@scalar/helpers@0.9.2': {}
 
@@ -4170,6 +4181,8 @@ snapshots:
 
   '@tailwindcss/oxide-wasm32-wasi@4.3.3':
     optional: true
+
+  '@tailwindcss/oxide-win32-x64-msvc@4.3.3': {}
 
   '@tailwindcss/oxide@4.3.3':
     optionalDependencies:
@@ -4854,6 +4867,8 @@ snapshots:
 
   lightningcss-linux-x64-gnu@1.32.0:
     optional: true
+
+  lightningcss-win32-x64-msvc@1.32.0: {}
 
   lightningcss@1.32.0:
     dependencies:
