@@ -51,6 +51,16 @@ artifacts/imag-agro/
 
 ## Calidad y estado
 
+## Configuración de Mercado en Vercel
+
+La ruta `/api/market` consulta Airtable exclusivamente desde el servidor. En el proyecto de Vercel, dentro de **Settings > Environment Variables**, cargar estas variables privadas para el entorno de producción:
+
+- `AIRTABLE_PAT`: token de Airtable de solo lectura.
+- `AIRTABLE_BASE_ID`: identificador de la base.
+- `AIRTABLE_TABLE_ID`: identificador de la tabla.
+
+No usar prefijos `VITE_` para estas variables. Después de cargarlas, crear un nuevo deployment desde `main`. Si alguna falta, la API devuelve un estado seguro sin exponer credenciales ni detalles internos.
+
 El proyecto fue validado en desktop y mobile, incluyendo navegación, rutas internas, foco de teclado, overflow horizontal, enlaces de WhatsApp e imágenes.
 
 Los scripts de typecheck, lint y build pasan correctamente. La web está preparada para publicarse, aunque quedan pendientes fotografías propias y datos comerciales que IMAG AGRO debe entregar o aprobar. El detalle está documentado en [CONTENT_ASSETS_PENDING.md](artifacts/imag-agro/CONTENT_ASSETS_PENDING.md).

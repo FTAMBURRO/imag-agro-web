@@ -540,7 +540,7 @@ export function HomePage() {
         <SectionIntro eyebrow="Catálogos oficiales" title="Genética y semillas, directo de origen." number="06" action={<Link href="/catalogos" className="flex items-center gap-2 border-b border-[hsl(var(--primary))] pb-2 text-sm font-bold">Ver catálogos <ArrowUpRight className="h-4 w-4" /></Link>}>
           Explorá materiales de Natalseeds y genética de Estancias y Cabaña Las Lilas. Consultanos para analizar disponibilidad y alternativas.
         </SectionIntro>
-        <CatalogCards />
+        <CatalogCards compact />
       </section>
 
       <section className="cta-photo">

@@ -6,18 +6,22 @@ const fieldsOf = (record) => {
 };
 const field = (fields, names) => names.map((name) => fields[name]).find((value) => value !== undefined && value !== null && value !== "");
 const dateKey = (value) => value.slice(0, 10);
+const jsonArray = (value) => {
+  if (Array.isArray(value)) return value;
+  if (typeof value !== "string") return [];
+  try { const parsed = JSON.parse(value); return Array.isArray(parsed) ? parsed : []; } catch { return []; }
+};
 
 function normalize(record) {
   const fields = fieldsOf(record);
   const marketDate = clean(field(fields, ["marketDate", "MarketDate", "Fecha", "fecha"]));
   if (!marketDate) return null;
-  const rows = (value) => Array.isArray(value) ? value : [];
-  const livestock = rows(field(fields, ["livestock", "Hacienda", "hacienda"])).flatMap((item) => {
+  const livestock = jsonArray(field(fields, ["livestock", "Hacienda", "hacienda"])).flatMap((item) => {
     const source = fieldsOf(item);
     const category = clean(field(source, ["category", "Categoría", "categoria"]));
     return category === undefined ? [] : [{ category: String(category), min: clean(field(source, ["min", "Mínimo", "minimo"])), max: clean(field(source, ["max", "Máximo", "maximo"])), average: clean(field(source, ["average", "Promedio", "promedio"])), unit: clean(field(source, ["unit", "Unidad", "unidad"])) }];
   });
-  const grains = rows(field(fields, ["grains", "Cereales", "cereales"])).flatMap((item) => {
+  const grains = jsonArray(field(fields, ["grains", "Cereales", "cereales"])).flatMap((item) => {
     const source = fieldsOf(item);
     const name = clean(field(source, ["name", "Nombre", "nombre"]));
     const price = clean(field(source, ["price", "Precio", "precio"]));
@@ -38,7 +42,7 @@ export default async function handler(_request, response) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 7000);
   try {
-    const query = new URLSearchParams({ maxRecords: "10", sort: JSON.stringify([{ field: "Fecha", direction: "desc" }]) });
+    const query = new URLSearchParams({ maxRecords: "1", sort: JSON.stringify([{ field: "Fecha", direction: "desc" }]) });
     const result = await fetch(`https://api.airtable.com/v0/${encodeURIComponent(AIRTABLE_BASE_ID)}/${encodeURIComponent(AIRTABLE_TABLE_ID)}?${query}`, { headers: { Authorization: `Bearer ${AIRTABLE_PAT}` }, signal: controller.signal });
     if (!result.ok) {
       response.status(200).json({ status: "unavailable" });

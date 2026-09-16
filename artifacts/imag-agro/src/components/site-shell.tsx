@@ -25,31 +25,33 @@ export function SiteHeader() {
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    const closeOnEscape = (event: KeyboardEvent) => { if (event.key === 'Escape') closeMenu(); };
+    if (menuOpen) document.addEventListener('keydown', closeOnEscape);
+    return () => { document.body.style.overflow = ''; document.removeEventListener('keydown', closeOnEscape); };
   }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
   return (
     <header className="relative z-30 border-b border-[hsl(var(--border))] bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))]">
       <a href="#contenido" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-[hsl(var(--accent))] focus:px-4 focus:py-3 focus:text-[hsl(var(--foreground))]">Ir al contenido</a>
-      <div className="container-wide flex h-[76px] items-center justify-between">
+      <div className="container-wide grid h-[76px] grid-cols-[auto_1fr_auto] items-center gap-6 xl:gap-8">
         <Link href="/" onClick={closeMenu} className="shrink-0" data-testid="link-home">
           <Mark />
         </Link>
-        <nav className="hidden items-center gap-8 xl:flex" aria-label="Navegación principal">
+        <nav className="hidden items-center justify-self-center gap-6 xl:flex" aria-label="Navegación principal">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} aria-current={location.startsWith(item.href) ? 'page' : undefined} className="site-link text-[.76rem] font-semibold tracking-[.11em] text-[hsl(var(--primary-foreground))]/85 hover:text-[hsl(var(--accent))]" data-testid={`link-nav-${item.label.toLowerCase()}`}>
+            <Link key={item.href} href={item.href} aria-current={location === item.href || (item.href !== '/' && location.startsWith(item.href)) ? 'page' : undefined} className="site-link whitespace-nowrap text-[.76rem] font-semibold tracking-[.08em] text-[hsl(var(--primary-foreground))]/85 hover:text-[hsl(var(--accent))]" data-testid={`link-nav-${item.label.toLowerCase()}`}>
               {item.label}
             </Link>
           ))}
         </nav>
-        <div className="hidden items-center gap-6 xl:flex">
+        <div className="hidden items-center justify-self-end xl:flex">
           <Link href="/contacto" className="group flex items-center gap-2 border border-[hsl(var(--accent))] px-4 py-2.5 text-[.72rem] font-bold tracking-[.1em] text-[hsl(var(--accent))] transition-colors hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--foreground))]" data-testid="link-header-contacto">
             Hablemos <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
-        <button type="button" onClick={() => setMenuOpen((open) => !open)} aria-expanded={menuOpen} aria-controls="mobile-navigation" className="p-2 xl:hidden" data-testid="button-mobile-menu">
-          {menuOpen ? <X aria-label="Cerrar menú" /> : <Menu aria-label="Abrir menú" />}
+        <button type="button" onClick={() => setMenuOpen((open) => !open)} aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'} aria-expanded={menuOpen} aria-controls="mobile-navigation" className="justify-self-end p-2 xl:hidden" data-testid="button-mobile-menu">
+          {menuOpen ? <X /> : <Menu />}
         </button>
       </div>
       {menuOpen && (

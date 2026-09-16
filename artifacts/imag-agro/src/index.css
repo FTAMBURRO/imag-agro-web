@@ -257,6 +257,21 @@
   transform: rotate(180deg);
 }
 
+.catalog-card,
+.catalog-preview {
+  overflow: hidden;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.catalog-card:hover,
+.catalog-preview:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.catalog-card__cover,
+.catalog-preview__cover { display: flex; align-items: center; justify-content: center; background: hsl(var(--primary)); padding: 1rem; }
+.catalog-preview__cover { background: hsl(var(--secondary)); }
+.catalog-card--natalseeds { border-top: 3px solid #c77b38; }
+.catalog-card--las-lilas { border-top: 3px solid hsl(var(--destructive)); }
+
 .site-photo {
   display: block;
   object-fit: cover;
