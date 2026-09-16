@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>http://localhost:3000/</loc></url>
-  <url><loc>http://localhost:3000/soluciones</loc></url>
-  <url><loc>http://localhost:3000/soluciones/semillas</loc></url>
-  <url><loc>http://localhost:3000/soluciones/genetica-bovina</loc></url>
-  <url><loc>http://localhost:3000/soluciones/insumos</loc></url>
-  <url><loc>http://localhost:3000/soluciones/forrajes</loc></url>
-  <url><loc>http://localhost:3000/soluciones/materias-primas</loc></url>
-  <url><loc>http://localhost:3000/soluciones/hacienda</loc></url>
-  <url><loc>http://localhost:3000/soluciones/campos</loc></url>
-  <url><loc>http://localhost:3000/soluciones/granos-y-back-office</loc></url>
-  <url><loc>http://localhost:3000/informacion</loc></url>
-  <url><loc>http://localhost:3000/mercados</loc></url>
-  <url><loc>http://localhost:3000/catalogos</loc></url>
-  <url><loc>http://localhost:3000/nosotros</loc></url>
-  <url><loc>http://localhost:3000/contacto</loc></url>
+  <url><loc>https://imagagro.com/</loc></url>
+  <url><loc>https://imagagro.com/soluciones</loc></url>
+  <url><loc>https://imagagro.com/soluciones/semillas</loc></url>
+  <url><loc>https://imagagro.com/soluciones/genetica-bovina</loc></url>
+  <url><loc>https://imagagro.com/soluciones/insumos</loc></url>
+  <url><loc>https://imagagro.com/soluciones/forrajes</loc></url>
+  <url><loc>https://imagagro.com/soluciones/materias-primas</loc></url>
+  <url><loc>https://imagagro.com/soluciones/hacienda</loc></url>
+  <url><loc>https://imagagro.com/soluciones/campos</loc></url>
+  <url><loc>https://imagagro.com/soluciones/granos-y-back-office</loc></url>
+  <url><loc>https://imagagro.com/informacion</loc></url>
+  <url><loc>https://imagagro.com/mercados</loc></url>
+  <url><loc>https://imagagro.com/catalogos</loc></url>
+  <url><loc>https://imagagro.com/nosotros</loc></url>
+  <url><loc>https://imagagro.com/contacto</loc></url>
 </urlset>

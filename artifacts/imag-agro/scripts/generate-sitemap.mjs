@@ -2,7 +2,8 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const siteUrl = (process.env.VITE_SITE_URL || 'http://localhost:3000').replace(/\/$/, '');
+const configuredUrl = process.env.VITE_SITE_URL || process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL;
+const siteUrl = (configuredUrl ? (configuredUrl.startsWith('http') ? configuredUrl : `https://${configuredUrl}`) : 'http://localhost:3000').replace(/\/$/, '');
 const publicDir = fileURLToPath(new URL('../public/', import.meta.url));
 const serviceRoutes = [
   '/',
@@ -32,7 +33,8 @@ const publishedArticleSlugs = articleSource
   .filter((route) => route !== null);
 const routes = [...serviceRoutes, ...publishedArticleSlugs];
 
-const body = routes.map((route) => `  <url><loc>${siteUrl}${route}</loc></url>`).join('\n');
+const escapeXml = (value) => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&apos;');
+const body = routes.map((route) => `  <url><loc>${escapeXml(`${siteUrl}${route}`)}</loc></url>`).join('\n');
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
 
 await mkdir(publicDir, { recursive: true });
