@@ -16,6 +16,8 @@ const serviceRoutes = [
   '/soluciones/campos',
   '/soluciones/granos-y-back-office',
   '/informacion',
+  '/mercados',
+  '/catalogos',
   '/nosotros',
   '/contacto',
 ];

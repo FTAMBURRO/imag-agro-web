@@ -22,6 +22,8 @@ import { brands, siteConfig } from "@/content/site";
 import { getService, services } from "@/content/services";
 import { photos, servicePhotos, type SitePhoto } from "@/content/media";
 import { Breadcrumb, PageFrame } from "@/components/site-shell";
+import { CatalogCards } from "@/components/catalog-cards";
+import { MarketSection } from "@/components/market-section";
 
 const assetBase = import.meta.env.BASE_URL;
 const assetUrl = (path: string) => `${assetBase}${path}`;
@@ -525,6 +527,22 @@ export function HomePage() {
         </div>
       </section>
 
+      <section className="bg-[hsl(var(--secondary))] py-24 md:py-28">
+        <div className="container-wide">
+          <SectionIntro eyebrow="Mercado de hoy" title="Información clara para decidir a tiempo." number="05" action={<Link href="/mercados" className="flex items-center gap-2 border-b border-[hsl(var(--primary))] pb-2 text-sm font-bold">Ver mercado completo <ArrowUpRight className="h-4 w-4" /></Link>}>
+            Valores de referencia cargados por IMAG a partir de fuentes oficiales. Consultá la fecha de mercado y confirmá condiciones antes de operar.
+          </SectionIntro>
+          <MarketSection compact />
+        </div>
+      </section>
+
+      <section className="container-wide py-24 md:py-28">
+        <SectionIntro eyebrow="Catálogos oficiales" title="Genética y semillas, directo de origen." number="06" action={<Link href="/catalogos" className="flex items-center gap-2 border-b border-[hsl(var(--primary))] pb-2 text-sm font-bold">Ver catálogos <ArrowUpRight className="h-4 w-4" /></Link>}>
+          Explorá materiales de Natalseeds y genética de Estancias y Cabaña Las Lilas. Consultanos para analizar disponibilidad y alternativas.
+        </SectionIntro>
+        <CatalogCards />
+      </section>
+
       <section className="cta-photo">
         <Photo photo={photos.farm} className="absolute inset-0 h-full w-full" />
         <div className="cta-photo__overlay" />
@@ -990,14 +1008,16 @@ export function AboutPage() {
       </section>
       <section className="container-wide py-20">
         <div className="border-t border-[hsl(var(--border))] pt-8">
-          <p className="eyebrow text-[hsl(var(--destructive))]">Quién está detrás</p>
+          <p className="eyebrow text-[hsl(var(--destructive))]">Cercanía real</p>
           <div className="mt-6 grid gap-8 md:grid-cols-[220px_1fr] md:items-center">
-            <div className="flex aspect-[4/3] items-center justify-center border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--secondary))] text-center text-sm text-[hsl(var(--muted-foreground))]">Fotografía del dueño o equipo</div>
+            <img src={`${assetBase}images/team/fundador.jpg`} alt="Fundador de IMAG en un entorno de trabajo" className="aspect-[4/3] w-full object-cover" loading="lazy" width="440" height="330" />
             <div>
-              <h2 className="font-display text-4xl text-[hsl(var(--primary))]">Una presentación real, cuando esté disponible.</h2>
-              <p className="mt-4 max-w-xl leading-relaxed text-[hsl(var(--muted-foreground))]">Este espacio queda preparado para sumar nombre, rol, fotografía y una presentación aprobada por IMAG AGRO.</p>
+              <h2 className="font-display text-4xl text-[hsl(var(--primary))]">Cerca para entender. Preparados para resolver.</h2>
+              <p className="mt-4 max-w-xl leading-relaxed text-[hsl(var(--muted-foreground))]">IMAG nació para acompañar al productor con soluciones concretas, asesoramiento y seguimiento cercano. Nos reunimos, escuchamos cada situación y buscamos la alternativa que mejor se adapte a cada planteo productivo.</p>
+              <p className="mt-4 max-w-xl leading-relaxed text-[hsl(var(--muted-foreground))]">La atención presencial y el vínculo directo forman parte de nuestra manera de trabajar. No somos solamente un número de teléfono: queremos estar disponibles antes, durante y después de cada decisión.</p>
             </div>
           </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-2"><img src={`${assetBase}images/office/puerta.jpg`} alt="Puerta de la oficina de IMAG" className="h-64 w-full object-cover" loading="lazy" width="800" height="500" /><img src={`${assetBase}images/office/atencion.jpg`} alt="Atención presencial en la oficina de IMAG" className="h-64 w-full object-cover" loading="lazy" width="800" height="500" /></div>
         </div>
       </section>
       <section className="bg-[hsl(var(--secondary))] py-20">
@@ -1060,6 +1080,16 @@ export function AboutPage() {
       <WhatsAppFloat />
     </PageFrame>
   );
+}
+
+export function MarketPage() {
+  usePageMeta("Mercado de hoy", "Valores de referencia cargados por IMAG a partir de fuentes oficiales para decidir a tiempo.");
+  return <PageFrame><section className="container-wide py-16 md:py-24"><Breadcrumb current="Mercado de hoy" /><div className="max-w-3xl"><p className="eyebrow text-[hsl(var(--destructive))]">Mercado de hoy</p><h1 className="mt-5 font-display text-6xl leading-[.95] text-[hsl(var(--primary))] md:text-8xl">Información clara para decidir a tiempo.</h1><p className="mt-7 max-w-2xl text-lg leading-relaxed text-[hsl(var(--muted-foreground))]">Valores de referencia cargados por IMAG a partir de fuentes oficiales. Consultá la fecha de mercado y confirmá condiciones antes de operar.</p></div><div className="mt-14"><MarketSection /></div></section><WhatsAppFloat /></PageFrame>;
+}
+
+export function CatalogsPage() {
+  usePageMeta("Catálogos oficiales", "Catálogos oficiales de Natalseeds y Estancias y Cabaña Las Lilas, con asesoramiento de IMAG.");
+  return <PageFrame><section className="container-wide py-16 md:py-24"><Breadcrumb current="Catálogos oficiales" /><div className="max-w-3xl"><p className="eyebrow text-[hsl(var(--destructive))]">Catálogos oficiales</p><h1 className="mt-5 font-display text-6xl leading-[.95] text-[hsl(var(--primary))] md:text-8xl">Genética y semillas, directo de origen.</h1><p className="mt-7 max-w-2xl text-lg leading-relaxed text-[hsl(var(--muted-foreground))]">IMAG es canal de venta directo de Natalseeds y Estancias y Cabaña Las Lilas. Explorá sus catálogos y consultanos para analizar disponibilidad y alternativas para tu planteo.</p></div><div className="mt-14"><CatalogCards /></div></section><WhatsAppFloat /></PageFrame>;
 }
 
 export function ContactPage() {

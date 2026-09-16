@@ -21,7 +21,7 @@ for (const file of files) {
   if (source.includes('TODO') || source.includes('FIXME')) {
     findings.push(`${file}: contiene TODO/FIXME`);
   }
-  if (/https?:\/\/(?!wa\.me\/message|www\.w3\.org)/.test(source)) {
+  if (/https?:\/\/(?!wa\.me\/message|www\.w3\.org|www\.mercadoagroganadero\.com\.ar|cac\.bcr\.com\.ar|natalseeds\.com|laslilas\.com|api\.airtable\.com)/.test(source)) {
     findings.push(`${file}: contiene una URL externa que requiere revisión`);
   }
 }

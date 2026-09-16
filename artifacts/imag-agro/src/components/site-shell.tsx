@@ -86,10 +86,17 @@ export function SiteFooter() {
             <div key={group.title}>
               <p className="eyebrow text-[hsl(var(--accent))]">{group.title}</p>
               <ul className="mt-6 space-y-4">
-                {group.links.map((link) => <li key={link.href}><Link href={link.href} className="text-sm text-[hsl(var(--primary-foreground))]/70 transition-colors hover:text-[hsl(var(--accent))]" data-testid={`link-footer-${link.label.toLowerCase().replaceAll(' ', '-')}`}>{link.label}</Link></li>)}
+                {group.links.map((link) => <li key={`${link.href}-${link.label}`}><Link href={link.href} className="text-sm text-[hsl(var(--primary-foreground))]/70 transition-colors hover:text-[hsl(var(--accent))]" data-testid={`link-footer-${link.label.toLowerCase().replaceAll(' ', '-')}`}>{link.label}</Link></li>)}
               </ul>
             </div>
           ))}
+          <div>
+            <p className="eyebrow text-[hsl(var(--accent))]">Información</p>
+            <ul className="mt-6 space-y-4">
+              <li><Link href="/mercados" className="text-sm text-[hsl(var(--primary-foreground))]/70 transition-colors hover:text-[hsl(var(--accent))]">Mercado de hoy</Link></li>
+              <li><Link href="/catalogos" className="text-sm text-[hsl(var(--primary-foreground))]/70 transition-colors hover:text-[hsl(var(--accent))]">Catálogos oficiales</Link></li>
+            </ul>
+          </div>
         </div>
         <div className="mt-16 flex flex-col gap-4 border-t border-[hsl(var(--sidebar-border))] pt-6 text-[.72rem] text-[hsl(var(--primary-foreground))]/50 md:flex-row md:items-center md:justify-between">
           <p>© {new Date().getFullYear()} IMAG AGRO SAS. Una empresa argentina.</p>

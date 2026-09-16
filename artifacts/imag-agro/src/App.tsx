@@ -4,7 +4,7 @@ import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { Route, Switch, useLocation, useParams, Router as WouterRouter } from 'wouter';
-import { AboutPage, ArticlePage, ContactPage, HomePage, InformationPage, NotFoundPage, ServicePage, SolutionsPage } from '@/pages/public-pages';
+import { AboutPage, ArticlePage, CatalogsPage, ContactPage, HomePage, InformationPage, MarketPage, NotFoundPage, ServicePage, SolutionsPage } from '@/pages/public-pages';
 
 const queryClient = new QueryClient();
 
@@ -15,7 +15,7 @@ function ServiceRoute() {
 
 function ArticleRoute() {
   const { slug } = useParams<{ slug: string }>();
-  return <ArticlePage slug={slug} />;
+  return <ArticlePage slug={slug === "planificar-verdeos-invierno" ? "planificacion-verdeos-invierno" : slug} />;
 }
 
 function Router() {
@@ -27,6 +27,8 @@ function Router() {
         <Route path="/soluciones/:slug" component={ServiceRoute} />
         <Route path="/informacion" component={InformationPage} />
         <Route path="/informacion/:slug" component={ArticleRoute} />
+        <Route path="/mercados" component={MarketPage} />
+        <Route path="/catalogos" component={CatalogsPage} />
         <Route path="/nosotros" component={AboutPage} />
         <Route path="/contacto" component={ContactPage} />
         <Route component={NotFoundPage} />

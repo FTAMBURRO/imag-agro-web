@@ -11,6 +11,8 @@
   <url><loc>http://localhost:3000/soluciones/campos</loc></url>
   <url><loc>http://localhost:3000/soluciones/granos-y-back-office</loc></url>
   <url><loc>http://localhost:3000/informacion</loc></url>
+  <url><loc>http://localhost:3000/mercados</loc></url>
+  <url><loc>http://localhost:3000/catalogos</loc></url>
   <url><loc>http://localhost:3000/nosotros</loc></url>
   <url><loc>http://localhost:3000/contacto</loc></url>
 </urlset>

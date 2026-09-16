@@ -1,0 +1,265 @@
+Quiero mejorar la web EXISTENTE de IMAG AGRO SAS. No quiero rehacerla desde cero.
+
+Sitio actual:
+https://imag-agro-sitio-premium--tamburrofacundo.replit.app/
+
+La dirección visual actual está aprobada: verde profundo, crema, dorado moderado, tipografía editorial y logo real de IMAG. Conservar esa base. El objetivo de esta iteración es pasar de “web visualmente atractiva” a “web auténtica, confiable y útil para un productor agropecuario argentino”.
+
+Antes de editar, inspeccioná el código y todas las rutas. Mostrame un plan breve de cambios priorizados y luego implementalo. No te detengas después del plan.
+
+PRINCIPIO CENTRAL
+
+Cada sección debe responder alguna de estas preguntas del visitante:
+
+1. ¿Qué hace IMAG concretamente?
+2. ¿Me puede ayudar con mi necesidad?
+3. ¿Por qué debería confiar?
+4. ¿Cómo le consulto ahora?
+
+Si una frase, fotografía o animación no ayuda a responder alguna de ellas, revisarla o quitarla.
+
+────────────────────────────────
+PRIORIDAD 0 — CORREGIR ERRORES REALES
+────────────────────────────────
+
+1. El enlace del footer “Planificar verdeos de invierno” apunta a:
+   /informacion/planificar-verdeos-invierno
+   y hoy termina en 404.
+
+   La ficha publicada usa otro slug. Unificá los slugs en una sola fuente de datos, corregí el enlace y auditá TODAS las rutas internas del sitio.
+
+2. Eliminar del contenido público de /contacto la frase:
+   “Por ahora usamos un enlace directo de WhatsApp. Cuando haya un número habilitado, podés activar desde la configuración el formulario con mensaje prearmado.”
+
+   Es una nota de implementación, no contenido para clientes. Reemplazar por texto comercial real, por ejemplo:
+   “Escribinos y contanos qué necesitás. Te ayudamos a encontrar el mejor punto de partida.”
+
+3. La sección /informacion muestra públicamente la etiqueta:
+   “Revisión técnica pendiente”.
+
+   Esto no debe aparecer en una web comercial publicada. Crear un campo interno de estado editorial (`draft`, `review`, `published`). Solo los artículos aprobados deben aparecer en índices, sitemap y enlaces públicos. Si no hay artículos aprobados, mostrar menos contenido, pero correcto. No simular aprobación.
+
+4. En /nosotros aparece una explicación interna sobre no presentar historias de clientes o resultados no documentados. Esa cautela es correcta para el equipo, pero no debe figurar como argumento comercial público. Mantener la restricción en documentación interna y reescribir el texto público.
+
+5. Auditar imágenes rotas, enlaces rotos, errores de consola y CTAs sin destino.
+
+────────────────────────────────
+PRIORIDAD 1 — HACER LA WEB VERDADERAMENTE DE IMAG
+────────────────────────────────
+
+No cambiar la paleta ni sustituir el logo actual.
+
+Crear un inventario de imágenes existentes y revisar una por una si:
+- corresponde al servicio o artículo;
+- parece realmente del agro argentino;
+- podría confundirse con una actividad propia de IMAG;
+- tiene derechos de uso claros;
+- se ve correctamente en desktop y mobile.
+
+Corregir asociaciones visuales evidentes:
+
+- Semillas: reemplazar la bandeja de plantines por maíz, sorgo, verdeos, bolsa de semilla real autorizada o recorrida de lote.
+- Forrajes: mostrar rollos de alfalfa, fardos o una situación de alimentación animal, no un galpón rural genérico.
+- Genética bovina: priorizar reproductores y material real autorizado de Cabaña Las Lilas si el cliente lo proporciona.
+- Hacienda: mostrar una operación ganadera auténtica, corrales, manga, remate o rodeo.
+- Back office de granos: mostrar documentación o trabajo operativo vinculado al agro, no una oficina corporativa genérica.
+- Artículo sobre híbridos: mostrar cultivo, espiga, evaluación de lote o material correspondiente; no una oficina.
+- Artículo sobre mercado ganadero: mostrar hacienda o información de mercado; no hileras de cultivo.
+
+Prioridad de imágenes:
+1. Fotos propias de IMAG entregadas por el cliente.
+2. Fotos entregadas por las marcas aliadas con permiso de uso.
+3. Fotos documentales temporales con licencia verificable.
+
+No sacar fotos de Instagram ni de webs ajenas y utilizarlas como propias sin autorización. No generar imágenes artificiales de “equipo de IMAG” o “clientes de IMAG”.
+
+Crear un archivo `CONTENT_ASSETS_PENDING.md` con la lista exacta de fotos faltantes, dónde se usarán y tamaño recomendado.
+
+La página /nosotros es prioritaria: hoy habla de cercanía sin mostrar personas. Diseñar un bloque para presentar al dueño/equipo real, con foto, nombre, rol y una presentación sencilla; pero no inventar ninguno de esos datos. Si faltan, dejar la estructura lista y publicar una versión sobria que no simule un equipo ficticio.
+
+────────────────────────────────
+PRIORIDAD 2 — MÁS ESPECIFICIDAD, MENOS FRASES ABSTRACTAS
+────────────────────────────────
+
+Revisar todo el copy. Actualmente algunas frases son elegantes, pero un productor necesita saber qué puede consultar.
+
+Conservar el tono argentino y el voseo, pero reducir frases vagas como:
+- “Construimos conversaciones que conectan la realidad productiva con el próximo paso”.
+- “Una red para ampliar la conversación”.
+- “La mejor respuesta depende de la pregunta correcta”.
+
+No borrarlas todas automáticamente: usar algunas como acento editorial, pero siempre acompañadas de información concreta.
+
+En la home, debajo del hero y antes de mucho contenido institucional, incluir una síntesis muy fácil de escanear:
+
+“¿En qué te ayudamos?”
+- Semillas e insumos.
+- Genética y hacienda.
+- Forrajes y alimentación animal.
+- Campos.
+- Gestión documental de granos.
+
+Cada ítem debe llevar al servicio y permitir consultar por WhatsApp.
+
+Las páginas de servicios deben ir más allá de una frase y tres preguntas. Agregar, cuando el contenido esté verificado:
+
+SEMILLAS
+- Maíz.
+- Sorgo.
+- Verdeos.
+- Selección por ambiente, fecha, manejo y destino.
+- Marcas vinculadas: Natal Seeds y Produsem, sin afirmar representación exclusiva.
+
+GENÉTICA BOVINA
+- Razas comunicadas por IMAG: Angus, Brangus, Braford, Brahman y Hereford.
+- Objetivos posibles: facilidad de parto, adaptación, crecimiento, carcasa y rendimiento.
+- Cabaña Las Lilas como alianza/portfolio, con el alcance comercial exacto pendiente de confirmación.
+
+FORRAJES
+- Rollos de alfalfa.
+- Fardos.
+- Calidad, conservación, disponibilidad y logística.
+- Aclarar cobertura solo cuando esté verificada.
+
+HACIENDA
+- Compra.
+- Venta.
+- Consignación.
+- Categorías, destino y momento comercial.
+
+GRANOS Y BACK OFFICE
+- Documentación.
+- Seguimiento administrativo.
+- Trazabilidad.
+- Orden operativo.
+- Cumplimiento.
+- No prometer servicios legales o contables si IMAG no los presta.
+
+CAMPOS
+- Venta.
+- Búsquedas según zona y objetivo.
+- No presentar avisos ficticios.
+
+No inventar stock, precios, condiciones, cobertura, datos financieros, rendimientos ni testimonios.
+
+────────────────────────────────
+PRIORIDAD 3 — MEJORAR CONVERSIÓN Y USABILIDAD
+────────────────────────────────
+
+El hero actual es atractivo, pero en un viewport desktop común los CTAs quedan parcialmente debajo del primer pantallazo.
+
+Ajustar altura, escala del título o distribución para que:
+- H1;
+- propuesta de valor;
+- CTA de WhatsApp;
+- CTA de soluciones
+
+se vean sin hacer scroll en un viewport de aproximadamente 1366 × 768.
+
+No sacrificar el impacto visual. La fotografía y el logo deben seguir siendo protagonistas.
+
+Revisar el header: hay muchos elementos de navegación y los textos se ven pequeños. Considerar agrupar o simplificar sin quitar acceso a secciones importantes. El botón de contacto debe tener jerarquía clara.
+
+El selector “¿Qué necesitás resolver?” es una buena idea: conservarlo, pero hacerlo más específico. Que cada opción lleve a una recomendación útil y a un CTA concreto. Probar todas las opciones, incluyendo regreso y navegación con teclado.
+
+WhatsApp:
+- Mantener el enlace actual funcional.
+- Cuando el número real esté disponible, preparar mensajes contextuales por servicio.
+- No inventar número telefónico.
+- Medir clics de CTA solo si se implementa analítica con consentimiento y configuración apropiada.
+
+En cada página de servicio, mostrar “Qué conviene tener a mano para consultarnos”:
+- zona/localidad;
+- necesidad;
+- superficie, lote o escala, cuando aplique;
+- momento de compra o decisión;
+- datos técnicos relevantes.
+
+No convertirlo en un formulario largo. Es una ayuda para iniciar una conversación mejor.
+
+────────────────────────────────
+PRIORIDAD 4 — CONTENIDO QUE GENERA CONFIANZA
+────────────────────────────────
+
+Tomar como referencias de producto y experiencia, sin copiar diseño:
+
+- Lartirigoyen: claridad para organizar muchas unidades de negocio.
+  https://www.lartirigoyen.com.ar/unidades-negocio
+
+- Produsem: cultivos y materiales concretos, información útil y opción de cotizar.
+  https://www.produsem.com/
+
+- Colombo y Magliano: información operativa y contacto claro para negocios de hacienda.
+  https://colomboymagliano.com.ar/web/
+
+- CREA: conocimiento técnico presentado como recurso para productores.
+  https://crea.org.ar/
+
+- Natal Seeds: forma de presentar materiales y catálogo de una marca del portfolio.
+  https://natalseeds.com/
+
+No copiar componentes, textos, fotografías ni logos. Aprender de la lógica comercial y de información.
+
+Transformar “Información para productores” en contenido con fuentes, fechas y utilidad práctica. Si un artículo no fue validado por IMAG:
+- no publicarlo como asesoramiento firmado por IMAG;
+- mantenerlo en borrador;
+- excluirlo del sitemap y del listado público.
+
+Crear una sección “Desde el campo” solo con experiencias reales verificadas. Puede incluir:
+- seguimiento de un lote;
+- visita a un remate;
+- material de Natal o Produsem;
+- recorrida técnica;
+- trabajo con genética de Las Lilas.
+
+Cada historia debería mostrar: qué se observó, dónde —si se puede publicar—, qué aprendizaje deja y qué servicio se relaciona. Evitar convertir observaciones puntuales en promesas generales.
+
+────────────────────────────────
+PRIORIDAD 5 — PULIDO VISUAL Y TÉCNICO
+────────────────────────────────
+
+Conservar la identidad editorial ya conseguida. No reemplazarla por cards SaaS o animaciones llamativas.
+
+Mejorar:
+- contraste del texto sobre fotos;
+- recortes de imágenes;
+- consistencia fotográfica;
+- espaciado excesivo donde corta la lectura;
+- tamaño de títulos en páginas internas;
+- ritmo entre secciones;
+- versión mobile;
+- estados hover y focus;
+- accesibilidad;
+- velocidad de carga.
+
+El logo debe aparecer con propósito, no repetido por obligación en todas las secciones.
+
+El sello “Made with Replit” visible no debe ocultarse mediante trucos CSS. Es una característica del hosting/plan: dejar el código limpio. La decisión de quitarlo será mediante el plan correspondiente o al migrar el proyecto a Vercel.
+
+Mantener la arquitectura portable a Vercel:
+- Next.js estándar.
+- Assets locales.
+- Variables de entorno documentadas.
+- Sin servicios propietarios de Replit.
+- Sin URLs de Replit hardcodeadas en metadata, canonical, Open Graph o sitemap.
+- `NEXT_PUBLIC_SITE_URL` configurable.
+
+────────────────────────────────
+CONTROL FINAL OBLIGATORIO
+────────────────────────────────
+
+Antes de entregar:
+
+1. Navegar toda la home en desktop y mobile.
+2. Revisar Soluciones, una página de cada servicio, Nosotros, Información y Contacto.
+3. Hacer clic en todos los enlaces del header y footer.
+4. Verificar que ningún enlace interno termina en 404.
+5. Verificar que no se muestran notas internas como “Revisión técnica pendiente”.
+6. Verificar que cada foto corresponde a su tema.
+7. Verificar que los CTAs del hero se ven sin scroll en 1366 × 768.
+8. Verificar contraste, focus, navegación por teclado y ausencia de overflow horizontal.
+9. Ejecutar lint, typecheck y build.
+10. Mostrar una tabla “Antes → Después” con los cambios reales.
+11. Indicar qué contenidos y fotos todavía requieren aprobación de IMAG.
+
+El objetivo no es que la web se vea más espectacular a cualquier costo. El objetivo es que un productor confíe más rápido, entienda los servicios y pueda consultar sin fricción; y que el dueño de IMAG sienta que el sitio representa a su empresa real.

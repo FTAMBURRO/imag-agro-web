@@ -8,6 +8,7 @@
     "build": "node scripts/generate-sitemap.mjs && vite build --config vite.config.ts",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "lint": "node scripts/lint.mjs",
+    "test:market": "tsx src/lib/market.test.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "devDependencies": {
